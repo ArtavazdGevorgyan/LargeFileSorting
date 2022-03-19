@@ -16,25 +16,23 @@ with open("inputfile.txt")as fileinput:
 #########################
 
 for num in range(0,numfiles+1):
-    dct=dict()
+    values=dict()
     with open(f"file{num}.txt", "r") as file:
         for line in file:
             line = line.strip(' \n')
             lst = list(line.split(" "))
             for i in lst:
-                try: dct[int(i)] += 1
-                except: dct[int(i)] = 1
+                try: values[int(i)] += 1
+                except: values[int(i)] = 1
     with open(f"file{num}.txt", "w") as file:
         item,number =0,0
         k=4000;                                       # fileum gtnvox 
         if num==numfiles: k=lastline_no%125*32        # elementneri qanak
         while item<k:
-            if number in dct.keys():
-                for j in range(0, dct[number]):
-                    file.write(f"{str(number)} ")
+            if number in values.keys():
+                for j in range(0, values[number]):
+                    file.write(f"{str(number)}\n")
                     item+=1
-                    if item%32==0:
-                        file.write("\n")
             number+=1
 
 
