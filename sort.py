@@ -26,7 +26,7 @@ for num in range(0,numfiles+1):
                 except: values[int(i)] = 1
     with open(f"file{num}.txt", "w") as file:
         item,number =0,0
-        k=4000;                                       # fileum gtnvox 
+        k=125*32;                                       # fileum gtnvox 
         if num==numfiles: k=lastline_no%125*32        # elementneri qanak
         while item<k:
             if number in values.keys():
